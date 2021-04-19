@@ -1,0 +1,137 @@
+
+body{
+	background-image: url("/static/images/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: absolute;
+	background-attachment: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+li {
+	font-weight: bold;
+}
+
+ul {
+	font-weight: bold;
+}
+
+#error {
+	font-weight: bold;
+}
+
+header {
+	background-color: black;
+	color: white;
+}
+
+#heading p {
+	text-align:justify;
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: white;
+}
+
+#logo {
+	display: table;
+}
+
+form {
+	display: table-cell;
+	font-weight: bold;
+}
+
+nav {
+	width: 77%;
+	display: table-cell;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav li a {
+	  display: inline-block;
+	  color: white;
+	  text-align: center;
+	  padding: 16px;
+	  text-decoration: none;
+}
+
+nav li a:hover {
+	  background-color: #383838;
+}
+
+
+#content{
+	font: 2em sans-serif bold;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: none;
+	padding: 15px;
+	grid-template-areas: 
+	'heading heading heading heading'
+	'target target secondTarget secondTarget';
+}
+
+
+#heading {
+	grid-area: heading;
+	text-align: center;
+}
+
+img {
+	border-radius: 25px 25px;
+}
+
+footer {
+	text-align: center;
+}
+
+footer ul {
+	list-style-type: none;
+	overflow: hidden;
+}
+
+footer li {
+	display: inline-block;
+}
+
+footer li a {
+	  display: inline-block;
+	  color: grey;
+	  text-align: center;
+	  text-decoration: none;
+}
+
+
+#copyright {
+	display: inline-block;
+	text-align: center;
+	background-color: black;
+	color: white;
+
+}
+
+@media only screen and (max-width: 700px) {
+	#content{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+                   

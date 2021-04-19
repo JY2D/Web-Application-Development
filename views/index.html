@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Citizen Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+
+    <!-- Include Handlebars from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="/static/js/main.js" type=module defer></script>
+  </head>
+  <body>
+
+    
+
+    <header>
+      <div id="logo"></div>
+      <nav>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#!/users">Users</a></li>
+              <li><a href="#!/observations">Observations</a></li>
+              <li><a href="#!/submit">Submit an observation</a></li>
+          </ul>
+      </nav>
+    </header>
+
+    <div id="content">
+
+      <div id="heading">
+          
+          <hgroup>
+              <h1>Citizen Science</h1>
+              <h2>Understanding Our Trees</h2>
+              <img src= static/images/tree.png >
+          </hgroup>
+      
+
+
+      </div>
+      <div id="target"></div>
+      <div id="error"></div>
+      <div id="secondTarget"></div>
+
+    </div>
+
+  <footer>
+    <div id="social">
+      <ul>
+        <li id="social-twitter"><a href="#">Twitter</a></li>
+        <li id="social-facebook"><a href="#">Facebook</a></li>
+        <li id="social-instagram"><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+
+    <ul class="footer-tos">
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Cookies</a></li>
+    </ul>
+    
+    <p id="copyright">All content and images subject to copyright &copy; COMP2110 Citizen Science 2020.</p>
+  </footer>
+
+
+  <!-- Templates -->
+  <!-- Users: -->
+  <script id= "show-list-of-people-template" type="text/x-handlebars-template">
+    <h2>Leaderboard of Users</h2>
+
+    <ol>
+      {{#each users}}
+      <li><a href="/#!/users/{{id}}">{{first_name}} {{last_name}}</a></li>
+      {{/each}}
+    </ol>
+  </script>
+
+  <script id="show-person-template" type="text/x-handlebars-template">
+    <h3>{{user.first_name}} {{user.last_name}}</h3>
+    <img src="{{user.avatar}}" alt="{{user.first_name}} {{user.last_name}}">
+    <ul>
+      <li>First Name: {{user.first_name}}</li>
+      <li>Last Name: {{user.last_name}}</li>
+      <li>Email Address: {{user.email}}</li>
+    </ul>
+
+    <h3>Observations: </h3>
+    <ul>
+      {{#each case}}
+        <li><a href= "/#!/observations/{{id}}">{{timestamp}} | {{location}} -- {{weather}} -- {{temperature}}&#176 </a></li>
+      {{/each}}
+    </ul>
+  </script>
+
+
+
+  <!--Observations-->
+  <script id="show-list-of-observations-template" type="text/x-handlebars-template">
+    <h2> Recent Observations</h2>
+
+    <ul>
+      {{#each observations}}
+      <li><a href="/#!/observations/{{id}}">{{timestamp}} | {{location}} -- {{weather}}</a></li>
+      {{/each}}
+    </ul>
+  </script>
+
+
+  <script id="show-observation-template" type="text/x-handlebars-template">
+    <h3>{{info.timestamp}} {{info.location}}</h3>
+  
+    <ul>
+      <li> Participant: <a href="/#!/users/{{participant.id}}">{{participant.first_name}} {{participant.last_name}}</a></li>
+      <li> Temperature: {{info.temperature}}&#176</li>
+      <li> Weather: {{info.weather}}</li>
+      <li> Wind: {{info.wind}}</li>
+      <li> Height: {{info.height}}</li>
+      <li> Girth: {{info.girth}}</li>
+      <li> Leaf size: {{info.leaf_size}}</li>
+      <li> Leaf shape: {{info.leaf_shape}}</li>
+      <li> Bark Colour: {{info.bark_colour}}</li>
+      <li> Bark Texture: {{info.bark_texture}}</li>
+    </ul>
+
+  </script>
+
+  <!--Homepage-->
+  <script id="show-list-of-top-template" type= "text/x-handlebars-template">
+    <h2> Top 10 Users</h2>
+    <ol>
+      {{#each user}}
+      <li><a href="/#!/users/{{id}}">{{first_name}} {{last_name}}</a></li>
+      {{/each}}
+    </ol>
+  </script>
+
+  </body>
+</html>
